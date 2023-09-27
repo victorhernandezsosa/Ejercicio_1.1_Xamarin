@@ -4,8 +4,8 @@
              x:Class="Ejercicio_1._1.MainPage">
     
     <StackLayout Spacing="20" Margin="20">
-        <Entry x:Name="numero1" Placeholder="Número 1" />
-        <Entry x:Name="numero2" Placeholder="Número 2" />
+        <Entry x:Name="numero1" Placeholder="Número 1" Keyboard="Numeric"/>
+        <Entry x:Name="numero2" Placeholder="Número 2" Keyboard="Numeric"/>
         
         <Button Text="Suma" Clicked="OnSumaClicked" Padding="10,20"/>
         

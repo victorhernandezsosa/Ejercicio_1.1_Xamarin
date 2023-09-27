@@ -11,41 +11,53 @@ namespace Ejercicio_1._1
 
         private void OnSumaClicked(object sender, EventArgs e)
         {
-            double n1 = double.Parse(numero1.Text);
-            double n2 = double.Parse(numero2.Text);
+            if (double.TryParse(numero1.Text, out double n1) && double.TryParse(numero2.Text, out double n2)) { 
+
             double res = n1 + n2;
             Navigation.PushAsync(new Resultado(res));
-            ;
+            
+            }
         }
 
         private void OnRestaClicked(object sender, EventArgs e)
         {
-            double n1 = double.Parse(numero1.Text);
-            double n2 = double.Parse(numero2.Text);
-            double res = n1 - n2;
-            Navigation.PushAsync(new Resultado(res));
+            if (double.TryParse(numero1.Text, out double n1) && double.TryParse(numero2.Text, out double n2))
+            {
+
+                double res = n1 - n2;
+                Navigation.PushAsync(new Resultado(res));
+
+            }
         }
 
         private void OnMultiplicacionClicked(object sender, EventArgs e)
         {
-            double n1 = double.Parse(numero1.Text);
-            double n2 = double.Parse(numero2.Text);
-            double res = n1 * n2;
-            Navigation.PushAsync(new Resultado(res));
+            if (double.TryParse(numero1.Text, out double n1) && double.TryParse(numero2.Text, out double n2))
+            {
+
+                double res = n1 * n2;
+                Navigation.PushAsync(new Resultado(res));
+
+            }
         }
 
         private void OnDivisionClicked(object sender, EventArgs e)
         {
-            double n1 = double.Parse(numero1.Text);
-            double n2 = double.Parse(numero2.Text);
-            if (n2 != 0)
+            if (double.TryParse(numero1.Text, out double n1) && double.TryParse(numero2.Text, out double n2))
             {
-                double res = n1 / n2;
-                Navigation.PushAsync(new Resultado(res));
+                if (n2 != 0)
+                {
+                    double res = n1 / n2;
+                    Navigation.PushAsync(new Resultado(res));
+                }
+                else
+                {
+                    MostrarError("Error: No se puede dividir con cero.");
+                }
             }
             else
             {
-                MostrarError("Error: División por cero.");
+                MostrarError("Error: Ingrese números válidos en ambas entradas.");
             }
         }
 
